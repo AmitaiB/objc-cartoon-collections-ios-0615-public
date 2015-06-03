@@ -3,7 +3,7 @@ tags: arrays, beginner, methods
 language: objc
 ---
 
-# Cartoon Collections
+# Val's Cartoons
 
 ## Submitting This Lab
 
