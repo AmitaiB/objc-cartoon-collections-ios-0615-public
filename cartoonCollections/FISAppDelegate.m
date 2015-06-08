@@ -51,7 +51,12 @@
 
 - (NSArray *)summonCaptainPlanet:(NSArray *)planeteerCalls
 {
-    return nil;
+    NSMutableArray *oneMoreTimeWithFeeling = [[NSMutableArray alloc] init];
+    for (NSString *elementCall in planeteerCalls) {
+        [oneMoreTimeWithFeeling addObject:(@"%@!", [elementCall capitalizedString])];
+    }
+    
+    return [oneMoreTimeWithFeeling copy];
 }
 
 - (NSArray *)longPlaneteerCalls:(NSArray *)planeteerCalls
