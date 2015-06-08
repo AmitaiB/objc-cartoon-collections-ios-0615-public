@@ -54,7 +54,7 @@
 {
     NSMutableArray *oneMoreTimeWithFeeling = [[NSMutableArray alloc] init];
     for (NSString *elementCall in planeteerCalls) {
-        NSString *placeholder = [NSString stringWithFormat:(@"%@!", [elementCall capitalizedString])];
+        NSString *placeholder = [NSString stringWithFormat: (@"%@!", [elementCall capitalizedString])];
         [oneMoreTimeWithFeeling addObject:placeholder];
     }
     
@@ -90,10 +90,11 @@
 {
     NSMutableArray *dollarAmounts = [[NSMutableArray alloc] init];
     for (NSInteger i = 0; i < [receipt count]; i++) {
-        NSString *placeholder = [NSString stringWithFormat:(@"$%@", [NSNumber numberWithInteger:[receipt[i] length]])];
+        NSString *placeholderString = [NSString stringWithString: receipt[i]]; //b/c I got an error nesting this in the line below...
+        NSNumber *placeholderNum = [NSNumber numberWithInteger:[placeholderString length]]; //...which threw an error nesting this in the line below IT...
+        NSString *placeholder = [NSString stringWithFormat:(@"$%d", placeholderNum)];
         [dollarAmounts addObject:placeholder];
     }
-    
     return [dollarAmounts copy];
 }
 
