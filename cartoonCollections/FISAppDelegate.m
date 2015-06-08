@@ -39,21 +39,23 @@
 {
     NSMutableArray *rollCall = [[NSMutableArray alloc] init];
     for (NSInteger i = 0; i < [dwarves count]; i++) {
-        [rollCall[i] addObject:(@"%ul. %@ | ", i, dwarves[i])];
+        NSString *placeholder = [NSString stringWithFormat:(@"%ul. %@ | ", i, dwarves[i])];
+        [rollCall addObject:placeholder];
     }
     
 //    This removes the extra " | " at the end.
     NSCharacterSet *notAlphanumeric = [[NSCharacterSet alphanumericCharacterSet] invertedSet];
     rollCall[[rollCall count]-1 ] = [[rollCall lastObject] stringByTrimmingCharactersInSet: notAlphanumeric];
     
-    return [rollCall copy];
+    return [rollCall description];
 }
 
 - (NSArray *)summonCaptainPlanet:(NSArray *)planeteerCalls
 {
     NSMutableArray *oneMoreTimeWithFeeling = [[NSMutableArray alloc] init];
     for (NSString *elementCall in planeteerCalls) {
-        [oneMoreTimeWithFeeling addObject:(@"%@!", [elementCall capitalizedString])];
+        NSString *placeholder = [NSString stringWithFormat:(@"%@!", [elementCall capitalizedString])];
+        [oneMoreTimeWithFeeling addObject:placeholder];
     }
     
     return [oneMoreTimeWithFeeling copy];
@@ -68,7 +70,7 @@
         }
     }
     
-    return longEnoughForYou;
+    return [longEnoughForYou copy];
 }
 
 - (NSString *)findTheCheese:(NSArray *)cheeses
@@ -81,17 +83,18 @@
         }
     }
     
-    return discoveredCheeses;
+    return [discoveredCheeses description];
 }
 
 - (NSArray *)calculateDollarAmountsWithReceipt:(NSArray *)receipt
 {
     NSMutableArray *dollarAmounts = [[NSMutableArray alloc] init];
     for (NSInteger i = 0; i < [receipt count]; i++) {
-        [dollarAmounts addObject:(@"$%@", [NSNumber numberWithInteger:[receipt[i] length]])];
+        NSString *placeholder = [NSString stringWithFormat:(@"$%@", [NSNumber numberWithInteger:[receipt[i] length]])];
+        [dollarAmounts addObject:placeholder];
     }
     
-    return dollarAmounts;
+    return [dollarAmounts copy];
 }
 
 
