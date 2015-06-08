@@ -61,7 +61,14 @@
 
 - (NSArray *)longPlaneteerCalls:(NSArray *)planeteerCalls
 {
-    return nil;
+    NSMutableArray *longEnoughForYou = [[NSMutableArray alloc] init];
+    for (NSString *elementCall in planeteerCalls) {
+        if ([elementCall length] > 4) {
+            [longEnoughForYou addObject:elementCall];
+        }
+    }
+    
+    return longEnoughForYou;
 }
 
 - (NSString *)findTheCheese:(NSArray *)cheeses
