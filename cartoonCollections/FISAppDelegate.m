@@ -37,7 +37,16 @@
 
 - (NSString *)rollCallDwarves:(NSArray *)dwarves
 {
-    return nil;
+    NSMutableArray *rollCall = [[NSMutableArray alloc] init];
+    for (NSInteger i = 0; i < [dwarves count]; i++) {
+        [rollCall[i] addObject:(@"%ul. %@ | ", i, dwarves[i])];
+    }
+    
+//    This removes the extra " | " at the end.
+    NSCharacterSet *notAlphanumeric = [[NSCharacterSet alphanumericCharacterSet] invertedSet];
+    rollCall[[rollCall count]-1 ] = [[rollCall lastObject] stringByTrimmingCharactersInSet: notAlphanumeric];
+    
+    return [rollCall copy];
 }
 
 - (NSArray *)summonCaptainPlanet:(NSArray *)planeteerCalls
