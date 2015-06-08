@@ -73,7 +73,15 @@
 
 - (NSString *)findTheCheese:(NSArray *)cheeses
 {
-    return nil;
+    NSArray *chosenCheeses = @[@"cheddar", @"gouda", @"camembert"];
+    NSMutableArray *discoveredCheeses = [[NSMutableArray alloc] init];
+    for (NSString *aCheese in cheeses) {
+        if ([chosenCheeses containsObject:aCheese]) {
+            [discoveredCheeses addObject:aCheese];
+        }
+    }
+    
+    return discoveredCheeses;
 }
 
 - (NSArray *)calculateDollarAmountsWithReceipt:(NSArray *)receipt
