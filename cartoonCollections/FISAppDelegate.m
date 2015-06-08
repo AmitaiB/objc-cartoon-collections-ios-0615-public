@@ -86,7 +86,12 @@
 
 - (NSArray *)calculateDollarAmountsWithReceipt:(NSArray *)receipt
 {
-    return nil;
+    NSMutableArray *dollarAmounts = [[NSMutableArray alloc] init];
+    for (NSInteger i = 0; i < [receipt count]; i++) {
+        [dollarAmounts addObject:(@"$%@", [NSNumber numberWithInteger:[receipt[i] length]])];
+    }
+    
+    return dollarAmounts;
 }
 
 
